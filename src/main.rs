@@ -72,7 +72,14 @@ fn main() {
         // --Parse into a number so we can modulo and equate
         let num: i32 = match num.trim().parse() {
             Ok(num) => num,
-            Err(_) => panic!("{}", "thats not a number!!".bright_red().bold().italic()),
+            Err(_) => panic!(
+                "{}",
+                "thats not a number!!"
+                    .bright_red()
+                    .bold()
+                    .italic()
+                    .underline()
+            ),
         };
 
         if num % 2 == 0 {
