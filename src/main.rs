@@ -1,6 +1,6 @@
 // use rand::Rng;
 // use std::cmp::Ordering;
-// use std::io;
+use std::io;
 
 fn main() {
     // println!("Guess the number!");
@@ -40,24 +40,50 @@ fn main() {
     //     }
     // }
 
-    let mut a: [i16; 10] = [1, 2, 3, 4, 5, 6, 1, 10, 22, 1];
-    a.sort();
+    // let mut a: [i16; 10] = [1, 2, 3, 4, 5, 6, 1, 10, 22, 1];
+    // a.sort();
 
-    for nums in a {
-        is_even(nums);
-        is_odd(nums);
+    // for nums in a {
+    //     is_even(nums);
+    //     is_odd(nums);
+    // }
+    loop {
+        println!("Enter your number please!");
+
+        let mut num = String::new();
+
+        // --Take user input (as string ofc ,_,)
+        io::stdin()
+            .read_line(&mut num)
+            .expect("An Error Occurred Reading Line");
+
+        if num.trim() == "exit" {
+            println!("Bye bye!");
+            break;
+        }
+
+        // --Parse into a number so we can modulo and equate
+        let num: i32 = match num.trim().parse() {
+            Ok(num) => num,
+            Err(_) => panic!("thats not a number!!"),
+        };
+
+        if num % 2 == 0 {
+            is_even(num);
+        } else {
+            is_odd(num);
+        }
     }
 }
 
-fn is_even(number: i16) {
+fn is_even(number: i32) {
     if number % 2 == 0 {
-        println!("{number} is even");
-        let mut even_nums: [i16; 10] = [];
+        println!("{} is even", number);
     }
 }
 
-fn is_odd(number: i16) {
+fn is_odd(number: i32) {
     if number % 2 != 0 {
-        println!("{number} is odd")
+        println!("{} is odd", number)
     }
 }
