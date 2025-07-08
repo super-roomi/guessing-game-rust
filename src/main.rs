@@ -1,5 +1,6 @@
 // use rand::Rng;
 // use std::cmp::Ordering;
+use colored::*;
 use std::io;
 
 fn main() {
@@ -48,7 +49,13 @@ fn main() {
     //     is_odd(nums);
     // }
     loop {
-        println!("Enter your number please!");
+        println!(
+            "{}",
+            "Enter your number please!"
+                .bright_magenta()
+                .on_white()
+                .bold()
+        );
 
         let mut num = String::new();
 
@@ -65,7 +72,7 @@ fn main() {
         // --Parse into a number so we can modulo and equate
         let num: i32 = match num.trim().parse() {
             Ok(num) => num,
-            Err(_) => panic!("thats not a number!!"),
+            Err(_) => panic!("{}", "thats not a number!!".bright_red().bold().italic()),
         };
 
         if num % 2 == 0 {
