@@ -96,8 +96,8 @@ fn main() {
     // }
 
     let user1 = User {
-        username: String::from("nigg"),
-        email: String::from("niggAA@gmail.com"),
+        username: String::from("hello"),
+        email: String::from("hello@gmail.com"),
         sign_in_count: 31,
         active: false,
     };
