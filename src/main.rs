@@ -1,8 +1,14 @@
 // use rand::Rng;
 // use std::cmp::Ordering;
-use colored::*;
-use std::io;
+// use colored::*;
+// use std::io;
 
+struct User {
+    username: String,
+    email: String,
+    sign_in_count: u32,
+    active: bool,
+}
 fn main() {
     // println!("Guess the number!");
 
@@ -48,56 +54,79 @@ fn main() {
     //     is_even(nums);
     //     is_odd(nums);
     // }
-    loop {
-        println!(
-            "{}",
-            "Enter your number please!"
-                .bright_magenta()
-                .on_white()
-                .bold()
-        );
+    // loop {
+    //     println!(
+    //         "{}",
+    //         "Enter your number please!"
+    //             .bright_magenta()
+    //             .on_white()
+    //             .bold()
+    //     );
 
-        let mut num = String::new();
+    //     let mut num = String::new();
 
-        // --Take user input (as string ofc ,_,)
-        io::stdin()
-            .read_line(&mut num)
-            .expect("An Error Occurred Reading Line");
+    //     // --Take user input (as string ofc ,_,)
+    //     io::stdin()
+    //         .read_line(&mut num)
+    //         .expect("An Error Occurred Reading Line");
 
-        if num.trim() == "exit" {
-            println!("Bye bye!");
-            break;
-        }
+    //     if num.trim() == "exit" {
+    //         println!("Bye bye!");
+    //         break;
+    //     }
 
-        // --Parse into a number so we can modulo and equate
-        let num: i32 = match num.trim().parse() {
-            Ok(num) => num,
-            Err(_) => panic!(
-                "{}",
-                "thats not a number!!"
-                    .bright_red()
-                    .bold()
-                    .italic()
-                    .underline()
-            ),
-        };
+    //     // --Parse into a number so we can modulo and equate
+    //     let num: i32 = match num.trim().parse() {
+    //         Ok(num) => num,
+    //         Err(_) => panic!(
+    //             "{}",
+    //             "thats not a number!!"
+    //                 .bright_red()
+    //                 .bold()
+    //                 .italic()
+    //                 .underline()
+    //         ),
+    //     };
 
-        if num % 2 == 0 {
-            is_even(num);
-        } else {
-            is_odd(num);
-        }
-    }
+    //     if num % 2 == 0 {
+    //         is_even(num);
+    //     } else {
+    //         is_odd(num);
+    //     }
+    // }
+
+    let user1 = User {
+        username: String::from("nigg"),
+        email: String::from("niggAA@gmail.com"),
+        sign_in_count: 31,
+        active: false,
+    };
+
+    let _name = user1.username;
+    let user2 = build_a_user(String::from("johnny"), String::from("johnnyCash@gmail.com"));
+    print!(
+        "Hi I'm {}. My email is {}, I've signed in {} times, and my active status is {}",
+        user2.username, user2.email, user2.sign_in_count, user2.active
+    );
 }
 
-fn is_even(number: i32) {
-    if number % 2 == 0 {
-        println!("{} is even", number);
-    }
+fn build_a_user(username: String, email: String) -> User {
+    return User {
+        email,
+        username,
+        sign_in_count: 1,
+        active: true,
+    };
 }
 
-fn is_odd(number: i32) {
-    if number % 2 != 0 {
-        println!("{} is odd", number)
-    }
-}
+// fn is_even(number: i32) {
+//     if number % 2 == 0 {
+//         println!("{} is even", number);
+//     }
+// }
+
+// fn is_odd(number: i32) {
+//     if number % 2 != 0 {
+//         println!("{} is odd", number)
+//     }
+// }
