@@ -3,11 +3,16 @@
 // use colored::*;
 // use std::io;
 
-struct User {
-    username: String,
-    email: String,
-    sign_in_count: u32,
-    active: bool,
+// struct User {
+//     username: String,
+//     email: String,
+//     sign_in_count: u32,
+//     active: bool,
+// }
+
+struct Rectangle {
+    width: u32,
+    height: u32,
 }
 fn main() {
     // println!("Guess the number!");
@@ -95,36 +100,47 @@ fn main() {
     //     }
     // }
 
-    let user1 = User {
-        username: String::from("hello"),
-        email: String::from("hello@gmail.com"),
-        sign_in_count: 31,
-        active: false,
+    // let user1 = User {
+    //     username: String::from("hello"),
+    //     email: String::from("hello@gmail.com"),
+    //     sign_in_count: 31,
+    //     active: false,
+    // };
+
+    // let _name = user1.username;
+    // let user2 = build_a_user(String::from("johnny"), String::from("johnnyCash@gmail.com"));
+    // print!(
+    //     "Hi I'm {}. My email is {}, I've signed in {} times, and my active status is {}",
+    //     user2.username, user2.email, user2.sign_in_count, user2.active
+    // );
+
+    // let user3 = User {
+    //     email: String::from("roomiisdead@gmail.com"),
+    //     username: String::from("roomi"),
+    //     ..user2
+    // };
+
+    let rect = Rectangle {
+        height: 5,
+        width: 10,
     };
 
-    let _name = user1.username;
-    let user2 = build_a_user(String::from("johnny"), String::from("johnnyCash@gmail.com"));
-    print!(
-        "Hi I'm {}. My email is {}, I've signed in {} times, and my active status is {}",
-        user2.username, user2.email, user2.sign_in_count, user2.active
-    );
+    print!("{}", calculate_area(&rect))
+}
 
-    let user3 = User {
-        email: String::from("roomiisdead@gmail.com"),
-        username: String::from("roomi"),
-        ..user2
-    };
+fn calculate_area(rectangle: &Rectangle) -> u32 {
+    return rectangle.height * rectangle.width;
 }
 
 // --in essence, a constructor
-fn build_a_user(username: String, email: String) -> User {
-    return User {
-        email,
-        username,
-        sign_in_count: 1,
-        active: true,
-    };
-}
+// fn build_a_user(username: String, email: String) -> User {
+//     return User {
+//         email,
+//         username,
+//         sign_in_count: 1,
+//         active: true,
+//     };
+// }
 
 // fn is_even(number: i32) {
 //     if number % 2 == 0 {
