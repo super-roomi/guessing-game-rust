@@ -108,8 +108,15 @@ fn main() {
         "Hi I'm {}. My email is {}, I've signed in {} times, and my active status is {}",
         user2.username, user2.email, user2.sign_in_count, user2.active
     );
+
+    let user3 = User {
+        email: String::from("roomiisdead@gmail.com"),
+        username: String::from("roomi"),
+        ..user2
+    };
 }
 
+// --in essence, a constructor
 fn build_a_user(username: String, email: String) -> User {
     return User {
         email,
